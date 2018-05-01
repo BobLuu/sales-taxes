@@ -10,10 +10,15 @@ class ReceiptItem
   end
 
   def to_a
-    [quantity, product_name, price]
+    [quantity, product_name, NumberHelper.currency_to_s(total)]
   end
 
   def tax_value
     @tax_value ||= get_tax_rate(product_name) * price
+    NumberHelper.round_tax(@tax_value)
+  end
+
+  def total
+    price + tax_value
   end
 end

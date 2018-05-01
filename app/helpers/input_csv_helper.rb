@@ -10,6 +10,7 @@ module InputCsvHelper
 
     data_rows.each do |item|
       next if item.empty? || item.length != 3 || item.map(&:strip).any?(&:empty?)
+      next unless NumberHelper.is_number?(item[0]) && NumberHelper.is_number?(item[2])
 
       receipt_item = ReceiptItem.new(item[0], item[1], item[2])
       receipt.push_item(receipt_item)
