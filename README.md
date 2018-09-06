@@ -1,5 +1,5 @@
 # SALES TAXES
-Assignment: assignment.md
+Assignment: Refer to the file assignment.md
 
 # Recommended environment
 * Ruby: 2.2
